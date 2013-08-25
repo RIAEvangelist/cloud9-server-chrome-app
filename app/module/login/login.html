@@ -1,0 +1,38 @@
+<form target="autocomplete" 
+    action="app/module/login/login.html" 
+    autocomplete='on' 
+    method="get">
+    <fieldset>
+        <legend>
+            Your Cloud 9 Server
+        </legend>
+        <input id='protocol' 
+            name='MyC9protocol'
+            placeholder='http'/>
+        <input id='hostname' 
+            name='MyC9Hostname'
+            placeholder='my.cloud9-website.com'/>
+        <input id='port' 
+            name='MyC9Port'
+            placeholder='3131'/>
+    </fieldset>
+    <fieldset>
+        <legend>
+            Credentials ( if needed )
+        </legend>
+        <input id='username'
+            name='MyC9Username'
+            type='text'
+            placeholder='username'/>
+        <input id='password'
+            name='MyC9Password'
+            placeholder='password'
+            type='password'/>
+    </fieldset>
+    <button id='set'>
+        connect
+    </button>
+</form>
+<iframe class='autocompleteIFrame' 
+    name="autocomplete" 
+    src="app/module/login/login.html"></iframe>
