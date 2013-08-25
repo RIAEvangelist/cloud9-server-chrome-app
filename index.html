@@ -6,6 +6,18 @@
         <setup>
             (
                 function(){
+                    
+                    window.addEventListener(
+                        'message', 
+                        IDEMessage, 
+                        false
+                    );
+                    
+                    function IDEMessage(e){
+                        console.log(e);
+                        e.source.postMessage('test',e.origin);
+                    }
+                
                     if(!window.cloud9config)
                         document.getElementsByTagName('html')[0].innerHTML='Uh ohhh, This is not a cloud9 instance.';
                 }
@@ -13,6 +25,8 @@
         </setup>
     </head>
     <body>
+        <section class='appModule' 
+            data-moduletype='webviewCom'></section>
         <header>
             <section class='sizeControls'>
                 <button id='min'>&ndash;</button>
@@ -24,6 +38,11 @@
             data-moduletype='login' 
             data-css='true' 
             data-html='true'></section>
-        <webview src="" partition="persist:digiNowJukeBox"></webview>
+        <webview class='appModule'
+            id='webview-primary'
+            data-moduletype='webview'
+            data-css='true'
+            src="" 
+            partition="persist:digiNowMyCloud9"></webview>
     </body>
 </html>

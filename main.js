@@ -51,13 +51,8 @@ function appOpened(e){
 }
 
 IDE.onload=function(e){
-    IDE.cloud9=IDE.window.document.querySelector('webview');
     IDE.controls=IDE.window.document.querySelector('header');
     
-    IDE.cloud9.addEventListener(
-        'loadstop',
-        IDEIsC9
-    );
     IDE.controls.addEventListener(
         'click',
         controlEvent
@@ -80,10 +75,4 @@ function controlEvent(e){
             IDE.window.chrome.app.window.current().fullscreen();
             break;
     }
-}
-
-function IDEIsC9(e){
-    IDE.cloud9.src='javascript:'+IDE.window.document.querySelector('setup').innerHTML
-        .replace(/\n/g,'')
-        .replace(/^\s*|\s(?=\s)|\s*$/,' ');
 }

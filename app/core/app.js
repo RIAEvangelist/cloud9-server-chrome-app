@@ -55,7 +55,7 @@ var app=(
                 
                 if(!constructors[moduleType]){
                     (
-                        function(config,moduleType,moduleQueue){
+                        function(config,moduleType,moduleQueue,el){
                             setTimeout(
                                 function(){
                                     if(moduleQueue[moduleType])
@@ -81,7 +81,7 @@ var app=(
                                 ,0
                             );
                         }
-                    )(config,moduleType,moduleQueue);
+                    )(config,moduleType,moduleQueue,el);
                     if(el.getAttribute('data-html')=='true')
                         fetchModuleHTML(moduleType);
                     

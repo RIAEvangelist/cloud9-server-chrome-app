@@ -45,19 +45,8 @@
                         }
                     );
                     
-                    var webview=document.getElementsByTagName('webview')[0]
-                    webview.style.display='block';
-                    webview.src=[
-                        (c9Config.protocol)?c9Config.protocol:inputs[0].placeholder,
-                        '://',
-                        (c9Config.username)?c9Config.username:inputs[3].placeholder,
-                        ':',
-                        (inputs[4].value.trim())?inputs[4].value.trim():inputs[4].placeholder,
-                        '@',
-                        (c9Config.hostname)?c9Config.hostname:inputs[1].placeholder,
-                        ':',
-                        (c9Config.port)?c9Config.port:inputs[2].placeholder
-                    ].join('');
+                    app.trigger('login.success')
+                    
                 }
             );
         }
