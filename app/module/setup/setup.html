@@ -12,8 +12,6 @@
             if(!IDE)
                 IDE=e.source;
             
-            console.log(e);
-            
             if(e.data.type=='is.cloud9'){
                 if(!window.cloud9config){
                     e.source.postMessage(
@@ -25,26 +23,32 @@
                 }
             }
             
-            document.head.appendChild(
-                newStyle
+            var body=document.querySelector('body');
+            if(!body)
+                return;
+                
+            body.appendChild(
+                newIDEStyle
             );
             
-            var links=document.body.addEventListener(
+            body.addEventListener(
                 'click',
                 handleNewWindow
             );
             
             function handleNewWindow(e){
-                if(!e.target.target)
-                    return;
-                if(e.target.target!='_blank')
-                    return;
-                document.location.href=e.target.href;
+                var links=document.querySelectorAll('a[target="_blank"]');
+                for(var i in links){
+                    if(!links[i].target)
+                        continue;
+                        
+                    links[i].target='';
+                }
             }
         }
         
-        var newStyle=document.createElement('style');
-        newStyle.innerHTML='
+        var newIDEStyle=document.createElement('style');
+        newIDEStyle.innerHTML='
             #menu,
             .sign-up,
             .sign-in-instantly,
@@ -62,7 +66,5 @@
                 display:none!important;
             }
         ';
-        
-        console.log(newStyle);
     }
 )()
