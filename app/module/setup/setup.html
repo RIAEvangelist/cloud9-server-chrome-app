@@ -1,0 +1,63 @@
+(
+    function(){
+        var IDE=false;
+        
+        window.addEventListener(
+            'message', 
+            IDEMessage, 
+            false
+        );
+        
+         function IDEMessage(e){
+            if(!IDE)
+                IDE=e.source;
+            
+            console.log(e);
+            
+            if(e.data.type=='is.cloud9'){
+                if(!window.cloud9config){
+                    e.source.postMessage(
+                        {
+                            type:'is.not.cloud9'
+                        },
+                        e.origin
+                    );
+                }
+            }
+            
+            document.head.appendChild(
+                newStyle
+            );
+            
+            var links=document.querySelectorAll('a[target="_blank""]');
+            for(var i in links){
+                if(!links[i].target)
+                    continue;
+                    
+                links[i].target='';
+            }
+        }
+        
+        var newStyle=document.createElement('style');
+        newStyle.innerHTML='
+            #menu,
+            .sign-up,
+            .sign-in-instantly,
+            .recent-article,
+            .page-body,
+            .footer,
+            .follow-icons,
+            .sign-up-services,
+            .follow_us,
+            .addthis_toolbox,
+            .github-signin,
+            .bitbucket-signin,
+            .signin_options,
+            .social{
+                display:none!important;
+            }
+        ';
+        
+        console.log(newStyle);
+    }
+)()

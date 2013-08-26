@@ -2,8 +2,13 @@
     function(){
         var moduleName='webview';
         
-        function readMessage(e){
-            console.log(e);
+        function invalidAddress(e){
+            if(hostname.value=='c9.io')
+                return;
+                
+            var webview=document.getElementById('webview-primary')
+            webview.src='';
+            webview.style.display='none';
         }
         
         function webviewInit(e){
@@ -46,10 +51,23 @@
                 'loadstop',
                 webviewInit
             );
+            el.addEventListener(
+                'loadredirect',
+                webviewInit
+            );
+            el.addEventListener(
+                'loadcommit',
+                webviewInit
+            );
+            el.addEventListener(
+                'loadabort',
+                invalidAddress
+            );
         }
         
         app.on('login.success',buildSrc);
-        app.on('webviewCom.message.from',readMessage);
+        app.on('is.not.cloud9',invalidAddress);
+        app.on('app.refresh',invalidAddress);
         exports(moduleName,render);    
     }
 )();

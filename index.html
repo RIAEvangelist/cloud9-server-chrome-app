@@ -3,41 +3,24 @@
     <head>
         <link rel="stylesheet" href="app.css" />
         <script src='app/core/app.js'></script>
-        <setup>
-            (
-                function(){
-                    
-                    window.addEventListener(
-                        'message', 
-                        IDEMessage, 
-                        false
-                    );
-                    
-                    function IDEMessage(e){
-                        console.log(e);
-                        e.source.postMessage('test',e.origin);
-                    }
-                
-                    if(!window.cloud9config)
-                        document.getElementsByTagName('html')[0].innerHTML='Uh ohhh, This is not a cloud9 instance.';
-                }
-            )()
-        </setup>
+        <setup class='appModule' 
+            data-moduletype='setup'></setup>
     </head>
     <body>
         <section class='appModule' 
             data-moduletype='webviewCom'></section>
-        <header>
-            <section class='sizeControls'>
-                <button id='min'>&ndash;</button>
-                <button id='max'>+</button>
-                <button id='close'>X</button>    
-            </section>
-        </header>
+        <header class='appModule' 
+            data-moduletype='header'
+            data-css='true' 
+            data-html='true'></header>
         <section class='appModule login' 
             data-moduletype='login' 
             data-css='true' 
             data-html='true'></section>
+        
+        <setup  class='appModule setup'
+            data-moduletype='setup'
+            data-html='true'></setup>
         <webview class='appModule'
             id='webview-primary'
             data-moduletype='webview'

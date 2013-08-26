@@ -3,7 +3,7 @@ var screenWidth = screen.availWidth,
     screenHeight = screen.availHeight,
     width=screenWidth/2,
     height=screenHeight/1.5,
-    minWidth=883,
+    minWidth=979,
     minHeight=537;
 chrome.runtime.requestUpdateCheck(updateCheck);
 
@@ -51,28 +51,5 @@ function appOpened(e){
 }
 
 IDE.onload=function(e){
-    IDE.controls=IDE.window.document.querySelector('header');
     
-    IDE.controls.addEventListener(
-        'click',
-        controlEvent
-    );
-}
-
-function controlEvent(e){
-    switch(e.target.id){
-        case 'close':
-            IDE.window.chrome.app.window.current().close();
-            break;
-        case 'min':
-            IDE.window.chrome.app.window.current().minimize();
-            break;
-        case 'max':
-            if(IDE.window.chrome.app.window.current().isFullscreen()){
-                IDE.window.chrome.app.window.current().restore();
-                break;
-            }
-            IDE.window.chrome.app.window.current().fullscreen();
-            break;
-    }
 }

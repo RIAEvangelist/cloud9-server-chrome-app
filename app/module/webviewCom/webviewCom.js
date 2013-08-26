@@ -2,21 +2,22 @@
     function(){
         var moduleName='webviewCom';
         
+        window.addEventListener(
+            'message', 
+            receiveMessage
+        );
+        
         function openCom(webview){
             webview.contentWindow.postMessage(
-                'init',
+                {
+                    type:'is.cloud9'
+                },
                 '*'
-            );
-            
-            window.addEventListener(
-                'message', 
-                receiveMessage
             );
         }
         
         function receiveMessage(e){
-            console.log(e)
-            app.trigger('webviewCom.message.from',e);
+            app.trigger(e.data.type,e.data);
         }
         
         function render(){
