@@ -15,18 +15,9 @@ function updateCheck(status){
 
 chrome.app.runtime.onLaunched.addListener(
     function() {
-        if(IDE.window){
-            if(IDE.window.chrome.app.window.id){
-                IDE.window.chrome.app.window.current().show();
-                return;
-            }
-        }
-        
         chrome.app.window.create(
             'index.html', 
             {
-                id:'IDE',
-                singleton:true,
                 bounds: {
                     width   : Math.round(width),
                     height  : Math.round(height),
@@ -46,8 +37,6 @@ chrome.app.runtime.onLaunched.addListener(
     
 function appOpened(e){
     e.contentWindow.onload=IDE.onload;
-    IDE.window=e.contentWindow;
-    IDE.window.chrome.app.window.current().resizeTo(width,height);
 }
 
 IDE.onload=function(e){
