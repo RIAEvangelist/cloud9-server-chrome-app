@@ -2,7 +2,7 @@
     function(){
         var moduleName='webview';
         
-        function invalidAddress(e){
+        function invalidAddress(){
             if(hostname.value=='c9.io')
                 return;
                 

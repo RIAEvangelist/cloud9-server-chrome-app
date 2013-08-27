@@ -28,9 +28,3 @@ header{
 .navigationControls{
     float:left;
 }
-
-.navigationControls svg{
-    height: 15px;
-    width: 13px;
-    fill: rgba(255,255,255,.8);
-}

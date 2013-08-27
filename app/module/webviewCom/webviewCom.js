@@ -8,6 +8,9 @@
         );
         
         function openCom(webview){
+            if(!webview.contentWindow)
+                return;
+                
             webview.contentWindow.postMessage(
                 {
                     type:'is.cloud9'

@@ -1,6 +1,7 @@
 (
     function(){
-        var IDE=false;
+        var IDE=false,
+            IDEisLoaded=false;
         
         window.addEventListener(
             'message', 
@@ -8,9 +9,33 @@
             false
         );
         
-         function IDEMessage(e){
+        window.addEventListener(
+            'load',
+            IDEReady
+        );
+        
+        function IDEReady(e){
+            IDEisLoaded=true;
+            
+            if(!IDE)
+                return;
+            
+            if(!window.cloud9config){
+                e.source.postMessage(
+                    {
+                        type:'is.not.cloud9'
+                    },
+                    e.origin
+                );
+            }
+        }
+        
+        function IDEMessage(e){
             if(!IDE)
                 IDE=e.source;
+            
+            if(!IDEisLoaded)
+                return;
             
             if(e.data.type=='is.cloud9'){
                 if(!window.cloud9config){
@@ -21,6 +46,7 @@
                         e.origin
                     );
                 }
+                return;
             }
             
             var body=document.querySelector('body');
