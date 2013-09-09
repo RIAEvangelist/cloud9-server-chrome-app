@@ -29,7 +29,7 @@
         function setSrc(c9Config){
             c9Config=c9Config.server;
             var webview=document.getElementById('webview-primary'),
-                inputs=document.getElementsByTagName('form')[0]
+                inputs=document.getElementById('chosenServer')
                     .getElementsByTagName('input');
             
             webview.style.display='block';

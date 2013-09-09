@@ -1,0 +1,57 @@
+.storedServers{
+    top:100px;
+    height:500px;
+    width:50%;
+    left:auto;
+    position:absolute;
+}
+
+.autocompleteIFrame{
+    display:none;
+}
+
+.storedServers input{
+    height:50px;
+    width:calc( 100% - 26px );
+    line-height:30px;
+    font-size:20px;
+    font-family:helvetica, arial, verdana;
+    padding:0 4px;
+    margin:10px;
+    border-radius:4px;
+    border:none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3),
+        inset 0px 1px 6px 1px rgba(82, 170, 224, 0.3);
+    background-color:rgb(255,255,255);
+    transition:background-color 500ms;
+}
+
+.invalid{
+    background-color:rgb(255,190,196)!important;
+}
+
+.storedServers fieldset{
+    margin:20px;
+    border-radius:4px;
+    border-width:1px;
+    background:rgba(255,255,255,.1);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4),
+        inset 0px 1px 3px 1px rgba(82, 170, 224, 0.4);
+}
+
+.storedServers legend{
+    font-weight:bold;
+    font-size:18px;
+    color:rgba(255,255,255,.8);
+}
+
+.storedServers button{
+    height: 50px;
+    padding: 10px;
+    margin: 10px -60px;
+    font-size: 20px;
+    width: 100px;
+    left: 50%;
+    position: absolute;
+}

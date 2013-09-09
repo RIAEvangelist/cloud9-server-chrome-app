@@ -1,7 +1,7 @@
 (
     function(){
-        var moduleName='login';
-        
+        var moduleName='storedServers';
+        /*
         function fillForm(data,el){
             if(!data.server)
                 return;
@@ -9,15 +9,16 @@
                 document.getElementById(i).value=data.server[i]
             }
         }
-        
+        */
         function render(el){
+            /*
             chrome.storage.sync.get(
                 null,
                 function(data){
                     fillForm(data,el);
                 }
             );
-            el.querySelector('#chosenServer').addEventListener(
+            el.querySelector('form').addEventListener(
                 'submit',
                 function(e){
                     var hostname=e.target.querySelector('input[name="MyC9Hostname"]');
@@ -49,6 +50,7 @@
                     
                 }
             );
+            */
         }
         
         exports(moduleName,render);    
