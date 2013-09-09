@@ -1,8 +1,7 @@
 .login{
-    top:180px;
-    height:200px;
+    top:100px;
+    height:500px;
     left:50%;
-    margin:0 0 0 -420px;
     position:absolute;
 }
 
@@ -12,6 +11,7 @@
 
 .login input{
     height:50px;
+    width:calc( 100% - 26px );
     line-height:30px;
     font-size:20px;
     font-family:helvetica, arial, verdana;

@@ -3,8 +3,8 @@ var screenWidth = screen.availWidth,
     screenHeight = screen.availHeight,
     width=screenWidth/2,
     height=screenHeight/1.5,
-    minWidth=979,
-    minHeight=537;
+    minWidth=990,
+    minHeight=680;
 chrome.runtime.requestUpdateCheck(updateCheck);
 
 function updateCheck(status){
