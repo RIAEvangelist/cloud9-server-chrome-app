@@ -1,23 +1,29 @@
 (
     function(){
         var moduleName='storedServers';
-        /*
+        
         function fillForm(data,el){
             if(!data.server)
                 return;
+            
+            console.log(data);
+            
+            /*
             for(var i in data.server){
                 document.getElementById(i).value=data.server[i]
             }
+            */
         }
-        */
+        
         function render(el){
-            /*
+            console.log('get stored servers')
             chrome.storage.sync.get(
                 null,
                 function(data){
                     fillForm(data,el);
                 }
             );
+            /*
             el.querySelector('form').addEventListener(
                 'submit',
                 function(e){

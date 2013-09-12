@@ -38,12 +38,21 @@
                             continue;
                         c9Config[input.id]=val;
                     }
+                    if(!c9Config.port)
+                        c9Config.port=e.target.querySelector('input[name="MyC9Port"]').placeholder;
                     
-                    chrome.storage.sync.set(
-                        {
-                            server:c9Config
-                        }
-                    );
+                    var storageData={
+                        server:c9Config,
+                        list:{}
+                    }
+                    storageData[
+                        [
+                            c9Config.hostname,
+                            c9Config.port
+                        ].join(':')
+                    ]=c9Config;
+                    
+                    chrome.storage.sync.set(storageData);
                     
                     app.trigger('login.success')
                     
