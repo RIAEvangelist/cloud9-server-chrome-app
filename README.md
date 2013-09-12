@@ -8,6 +8,9 @@ When you start the app up enter any information needed to reach a Cloud9 install
 
 Each server you connect to will be stored on the left hand side of the My Cloud9 dash for convenient access at a later date from any device you are logged in on. These servers will automatically sync across your logged in chrome devices.
 
+Also, if you are having trouble getting your own Cloud9 server set up please see the Gist I made after having issues myself.
+https://gist.github.com/RIAEvangelist/6335743
+
 Please feel free to contribute and/or file bugs. 
 
 > Written with [StackEdit](http://benweet.github.io/stackedit/).
