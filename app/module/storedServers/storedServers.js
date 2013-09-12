@@ -3,24 +3,28 @@
         var moduleName='storedServers';
         
         function fillForm(data,el){
-            console.log(data.list);
             if(!data.list)
                 return;
-            
+            console.log(el)
             for(var i in data.list){
-                console.log(i,data.list[i])
+                el.innerHTML+=[
+                    '<li>',
+                    i,
+                    '</li>'
+                ].join('');
             }
             
         }
         
         function render(el){
-            console.log('get stored servers')
+            var serverList=el.querySelector('#serverList');
             chrome.storage.sync.get(
                 null,
                 function(data){
-                    fillForm(data,el);
+                    fillForm(data,serverList);
                 }
             );
+            
             /*
             el.querySelector('form').addEventListener(
                 'submit',
