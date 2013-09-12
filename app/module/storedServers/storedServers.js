@@ -3,16 +3,14 @@
         var moduleName='storedServers';
         
         function fillForm(data,el){
-            if(!data.server)
+            console.log(data.list);
+            if(!data.list)
                 return;
             
-            console.log(data);
-            
-            /*
-            for(var i in data.server){
-                document.getElementById(i).value=data.server[i]
+            for(var i in data.list){
+                console.log(i,data.list[i])
             }
-            */
+            
         }
         
         function render(el){

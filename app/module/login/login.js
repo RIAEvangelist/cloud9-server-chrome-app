@@ -45,7 +45,7 @@
                         server:c9Config,
                         list:{}
                     }
-                    storageData[
+                    storageData.list[
                         [
                             c9Config.hostname,
                             c9Config.port
