@@ -6,6 +6,10 @@
             if(hostname.value=='c9.io')
                 return;
                 
+            app.trigger('app.refresh');
+        }
+        
+        function refresh(){
             var webview=document.getElementById('webview-primary')
             webview.src='';
             webview.style.display='none';
@@ -68,7 +72,7 @@
         
         app.on('login.success',buildSrc);
         app.on('is.not.cloud9',invalidAddress);
-        app.on('app.refresh',invalidAddress);
+        app.on('app.refresh',refresh);
         exports(moduleName,render);    
     }
 )();

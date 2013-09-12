@@ -3,7 +3,8 @@
         var moduleName='login',
         list={};
         
-        function fillForm(data,el){
+        function fillForm(data){
+            var el=document.querySelector('.login');
             if(data.list)
                 list=data.list;
                 
@@ -14,13 +15,17 @@
             }
         }
         
-        function render(el){
+        function getData(){
             chrome.storage.sync.get(
                 null,
                 function(data){
-                    fillForm(data,el);
+                    fillForm(data);
                 }
             );
+        }
+        
+        function render(el){
+            getData();
             el.querySelector('#chosenServer').addEventListener(
                 'submit',
                 function(e){
@@ -57,13 +62,19 @@
                     ]=c9Config;
                     storageData.list=JSON.parse(JSON.stringify(list));
                     
-                    chrome.storage.sync.set(storageData,function(e){chrome.storage.sync.get(null,function(e){console.log(e)})});
-                    
-                    app.trigger('login.success');
+                    chrome.storage.sync.set(
+                        storageData,
+                        function(e){
+                            getData();
+                            app.trigger('app.refresh');
+                            app.trigger('login.success');
+                        }
+                    );
                 }
             );
         }
         
+        app.on('app.refresh',getData);
         exports(moduleName,render);    
     }
 )();

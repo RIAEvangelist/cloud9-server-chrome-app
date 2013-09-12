@@ -28,6 +28,12 @@
     font-size:16px;
 }
 
+.storedServers button{
+    height: 25px;
+    position: absolute;
+    right: 23px;
+}
+
 .storedServers li{
     cursor:pointer;
     height:40px;
