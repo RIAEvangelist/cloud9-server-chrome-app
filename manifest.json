@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
     "name": "My Cloud9",
-    "description":"My Cloud9 IDE by DigiNow.it allows you to connect to your local or remote c9.io server, the best IDE ever just got better!",
+    "description":"My Cloud9 IDE by DigiNow.it allows you to store and connect to all of your local, remote or c9.io Cloud9 servers, the best IDE ever just got better!",
     "minimum_chrome_version": "23",
-    "version": "0.0.1.0",
+    "version": "1.0.0.0",
     "icons": {
         "16": "icon_16.png",
         "32": "icon_32.png",
