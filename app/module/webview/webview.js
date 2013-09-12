@@ -27,7 +27,7 @@
         }
         
         function setSrc(c9Config){
-            console.log(c9Config)
+            //console.log(c9Config)
             c9Config=c9Config.server;
             var webview=document.getElementById('webview-primary'),
                 inputs=document.getElementById('chosenServer')

@@ -1,8 +1,12 @@
 (
     function(){
-        var moduleName='login';
+        var moduleName='login',
+        list={};
         
         function fillForm(data,el){
+            if(data.list)
+                list=data.list;
+                
             if(!data.server)
                 return;
             for(var i in data.server){
@@ -42,20 +46,20 @@
                         c9Config.port=e.target.querySelector('input[name="MyC9Port"]').placeholder;
                     
                     var storageData={
-                        server:c9Config,
-                        list:{}
+                        server:c9Config
                     }
-                    storageData.list[
+                    
+                    list[
                         [
                             c9Config.hostname,
                             c9Config.port
                         ].join(':')
                     ]=c9Config;
+                    storageData.list=JSON.parse(JSON.stringify(list));
                     
-                    chrome.storage.sync.set(storageData);
+                    chrome.storage.sync.set(storageData,function(e){chrome.storage.sync.get(null,function(e){console.log(e)})});
                     
-                    app.trigger('login.success')
-                    
+                    app.trigger('login.success');
                 }
             );
         }
