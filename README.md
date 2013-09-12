@@ -1,15 +1,13 @@
 My Cloud9 IDE
 ========================
+This is a Chrome app which you can use to connect to any local or remote Cloud9 server. It will also allow you to connect to any c9.io dashboard or project directly as well.
 
-This is a Chrome app which you can use to run your own installed or hosted version of Cloud9 from your local system or remote server.
+If you are using this to connect to c9.io rather than an installed version of Cloud9 on a local or remote box, you will need to be able to log in with a username and password on c9.io. If you originally signed up with a github or bitbucket login just hit the forgot password using your email and you will get a password to use with your email. This will not efect your github or bitbucket accounts at all.
 
-It now has initial stages of hosted c9.io support as well for those that can log in with a username and password on c9.io:80 if you are signed up with a github or bitbucket login just hit the forgot password using your email and you will get a new password to login in with on C9.io along with still being able to hit the single sign on button in the browser version.
+When you start the app up enter any information needed to reach a Cloud9 installation. The minimum required data is the hostname to the Cloud9 server. Everything else will default to the placeholder values you see in the input fields.
 
-When you start the app up enter any information needed to reach your cloud9 installation. The minimum required is the hostname to your cloud9 server. Everything else will default to the placeholder values you see in the input fields.
+Each server you connect to will be stored on the left hand side of the My Cloud9 dash for convenient access at a later date from any device you are logged in on. These servers will automatically sync across your logged in chrome devices.
 
-Make sure to put your username and password in before you hit connect as the current state of the app does not handle invalid credentials for your server nor does it handle returning to the login screen, you will need to restart the app.
-
-There are many more issues to be fixed with this implementation, but it is a good working alpha after just one nights coding. Please feel free to contribute and/or file bugs. 
-
+Please feel free to contribute and/or file bugs. 
 
 > Written with [StackEdit](http://benweet.github.io/stackedit/).
