@@ -1,7 +1,10 @@
 (
     function(){
         var moduleName='webview';
-        
+        var bookmarklet='javascript:'+document.querySelector('setup').innerHTML
+                .replace(/\n/g,'')
+                .replace(/^\s*|\s(?=\s)|\s*$/,' ');
+                
         function invalidAddress(){
             if(hostname.value=='c9.io')
                 return;
@@ -16,10 +19,13 @@
         }
         
         function webviewInit(e){
-            e.target.src='javascript:'+document.querySelector('setup').innerHTML
-                .replace(/\n/g,'')
-                .replace(/^\s*|\s(?=\s)|\s*$/,' ');
-                
+             el.removeEventListener(
+                'loadstart',
+                webviewInit
+            );
+            if(bookmarklet)
+                e.target.src=bookmarklet
+            bookmarklet=false;
             app.trigger('webview.loaded',e.target);
         }
         
@@ -53,20 +59,8 @@
         
         function render(el){
             el.addEventListener(
-                'loadstop',
+                'loadstart',
                 webviewInit
-            );
-            el.addEventListener(
-                'loadredirect',
-                webviewInit
-            );
-            el.addEventListener(
-                'loadcommit',
-                webviewInit
-            );
-            el.addEventListener(
-                'loadabort',
-                invalidAddress
             );
         }
         
