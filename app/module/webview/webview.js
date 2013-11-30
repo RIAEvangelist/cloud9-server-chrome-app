@@ -1,9 +1,6 @@
 (
     function(){
         var moduleName='webview';
-        var bookmarklet='javascript:'+document.querySelector('setup').innerHTML
-                .replace(/\n/g,'')
-                .replace(/^\s*|\s(?=\s)|\s*$/,' ');
                 
         function invalidAddress(){
             if(hostname.value=='c9.io')
@@ -19,14 +16,15 @@
         }
         
         function webviewInit(e){
-             el.removeEventListener(
-                'loadstart',
-                webviewInit
+            runWebviewJS(
+                e.target,
+                '/js/browser_code.js',
+                true,
+                true,
+                true
             );
-            if(bookmarklet)
-                e.target.src=bookmarklet
-            bookmarklet=false;
-            app.trigger('webview.loaded',e.target);
+            
+            app.trigger('webview.loaded',e.target)
         }
         
         function buildSrc(){

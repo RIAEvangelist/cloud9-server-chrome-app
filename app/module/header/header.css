@@ -28,3 +28,13 @@ header{
 .navigationControls{
     float:left;
 }
+
+.version{
+    float:left;
+    color:white;
+    padding:2px 10px;
+}
+
+.refresh{
+    float:left;
+}

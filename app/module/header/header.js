@@ -28,6 +28,8 @@
                 'click',
                 controlEvent
             );
+            
+            el.querySelector('#version').innerText='v'+chrome.runtime.getManifest().version;
         }
         
         exports(moduleName,render);    
